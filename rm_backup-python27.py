@@ -5,6 +5,7 @@ import  os
 import time
 
 cur_time = time.time()
+#获取当天零点的时间戳
 st = cur_time - cur_time%86400 + time.timezone
 
 dir_path = "/data/backup"
@@ -15,8 +16,8 @@ def drop_file(file_dir):
         if os.path.isfile(file_dir + "/" +filename):
             ft = os.stat(file_dir + "/" +filename)
             lt = int(ft.st_mtime)
-            nt = cur_time - 3600*2
-            dt = st - 86400*2
+            nt = cur_time - 3600*2 #获取当天保留截止的时间戳
+            dt = st - 86400*2      #获取保留截止天数时间戳
             
             #delete  file  by hour in today
             if st < lt < nt:
