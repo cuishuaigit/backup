@@ -17,7 +17,7 @@ def drop_file(file_dir):
             ft = os.stat(file_dir + "/" +filename)
             lt = int(ft.st_mtime)
             nt = cur_time - 3600*2 #获取当天保留截止的时间戳
-            dt = st - 86400*2      #获取保留截止天数时间戳
+            dt = st - 86400*5      #获取保留截止天数时间戳
             
             #delete  file  by hour in today
             if st < lt < nt:
