@@ -28,7 +28,7 @@ def drop_file(file_dir):
                 except (SyntaxError,IOError) as error:
                     print error
             #delete file by day
-            if lt < dt:
+            elif lt < dt:
                 try:
                     os.remove(file_dir + "/" + filename)
                     time.sleep(3)
