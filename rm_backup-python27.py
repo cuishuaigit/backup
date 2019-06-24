@@ -23,6 +23,7 @@ def drop_file(file_dir):
             if st < lt < nt:
                 try:
                     os.remove(file_dir + "/" + filename)
+                    os.removedirs(file_dir + "/" + filename)
                     time.sleep(3)
                     print "Deleted success" + file_dir + "/" + filename
                 except (SyntaxError,IOError) as error:
@@ -31,6 +32,7 @@ def drop_file(file_dir):
             elif lt < dt:
                 try:
                     os.remove(file_dir + "/" + filename)
+                    os.removedirs(file_dir + "/" + filename)
                     time.sleep(3)
                     print "Deleted success" + file_dir + "/" + filename
                 except (SyntaxError,IOError) as error:

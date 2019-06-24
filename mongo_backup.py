@@ -9,7 +9,8 @@ dir_path = "/data/backup"
 
 def db_backup(user,pwd,host,db):
     
-    call("mongodump -u {} -p {} -h {} -d {} --gzip --archive={}/saturn-{}.gz".format(user,pwd,host,db,dir_path,go_time))
+    call("/data/mongodb/bin/mongodump -u {} -p {} -h {} -d {} --excludCollection=likereviews --gzip --archive={}/faster-without-likereviews{}.gz".format(user,pwd,host,db,dir_path,go_time), shell=True)
+    call("/data/mongodb/bin/mongodump -u {} -p {} -h {} -d {} -c likereviews -o {}/likereviews-{}".format(user,pwd,host,db,dir_path,go_time), shell=True)
 
 if __name__ == '__main__':
     
